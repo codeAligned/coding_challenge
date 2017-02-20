@@ -29,9 +29,11 @@
 			</Target>
 		</Build>
 		<Compiler>
+			<Add option="-std=c++11" />
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="../temp_function.cpp" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
