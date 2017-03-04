@@ -1,21 +1,31 @@
 #include <string>
 #include <iostream>
 
-/*
-int main()
-{
-    std::cout << "get it !" << std::endl;
-    return 0;
-}
-*/
 
-
+#include <fstream>
+#include <sstream>
 
 
 int testFunc()
 {
     return 9;
 }
+
+
+
+class IOLIbTest
+{
+public:
+    IOLIbTest();
+    ~IOLIbTest();
+
+private:
+    int nState;
+};
+
+
+
+
 
 
 

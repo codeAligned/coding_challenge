@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <fstream>
 
 using namespace std;
 
@@ -80,12 +81,34 @@ int GetDataTypeLength()
     cout << (*(pTwoArr+1))[1] <<endl;
 
 
+    cout << istream::eofbit << endl;
+    cout << istream::goodbit << endl;
+    cout << istream::failbit << endl;
+    cout << istream::badbit << endl;
 
+    cout << cout.eof() << endl;
 
+    cout << endl;
+
+    fstream tempIO;
+    fstream::iostate tempIOState = fstream::eofbit;
+    tempIO.setstate(tempIOState);
+    cout << tempIO.rdstate() << endl;
+    tempIO.clear(tempIOState);
+    cout << tempIO.rdstate() << endl;
+    tempIO.clear();
+    cout << tempIO.rdstate() << ends;
+    cout << tempIO.rdstate() << ends;
     return 0;
-
-
 }
+
+
+
+
+
+
+
+
 
 auto GetPartialArry(int (*raw_array)[4]) -> int (*)[2]
 {
