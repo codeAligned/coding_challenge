@@ -24,7 +24,6 @@ int GetDataTypeLength()
     short shortVal = 42;
     static long longVal = 42;
     unsigned long long ullVal = 44444;
-
     float fVal = 67.8;
     double dVal = 55.4;
     long double ldVal = 88.9;
@@ -44,7 +43,7 @@ int GetDataTypeLength()
     const int &bufSize = 512.845;
     std::cout << "const  size is " << sizeof(bufSize)<< std::endl;
 
-    constexpr int ff = 89;
+    // constexpr int ff = 89;
     constexpr long *pLong = &longVal;
 
     auto val = 88.6;
@@ -100,6 +99,7 @@ int GetDataTypeLength()
     cout << tempIO.rdstate() << ends;
     cout << tempIO.rdstate() << ends;
     return 0;
+
 }
 
 
