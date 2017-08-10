@@ -10,12 +10,10 @@
 
 
 // Comment 3
+
 // Comment 5
-
-
-
-
-
+// Comment 4
+// >>>>>>> 3ad617ba0b7bd8c5a66c222080f696b7b4c6f8f2
 
 
 int testFunc()
