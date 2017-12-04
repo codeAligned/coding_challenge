@@ -34,9 +34,13 @@ int bubble_sort(SequenceWithSentinel *seq_array);
 int bubble_sort_with_optimization(SequenceWithSentinel *seq_array);
 
 int simple_selection_sort(SequenceWithSentinel *seq_array);
+int heap_sort(SequenceWithSentinel *seq_array);
+int heap_adjust(ElementType data[], int low, int high); 
 
 int straight_insertion_sort(SequenceWithSentinel *seq_array);
 int shell_sort(SequenceWithSentinel *seq_array);
+
+
 
 
 

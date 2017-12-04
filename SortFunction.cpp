@@ -221,6 +221,61 @@ int simple_selection_sort(SequenceWithSentinel *seq_array)
     return 0;
 }
 
+int heap_sort(SequenceWithSentinel *seq_array)
+{
+    if (!seq_array || seq_array->elem_num <= 0)
+    {
+        return 1;
+    }
+
+    for (int i = seq_array->elem_num / 2; i >= 1; i--)
+    {
+        heap_adjust(seq_array->data, i, seq_array->elem_num);
+    }
+
+    for (int i = seq_array->elem_num; i > 1; i--)
+    {
+        helper_swap(&seq_array->data[i], &seq_array->data[1]);
+        heap_adjust(seq_array->data, 1, i - 1);
+    }
+    return 0;
+}
+
+
+
+int heap_adjust(ElementType data[], int root_index, int max_index)
+{
+    if (!data || root_index > max_index)
+    {
+        return 1;
+    }
+
+    int temp_root_index = root_index;
+    // ElementType root_elem_value = data[temp_root_index];
+    for (int child_index = root_index * 2; child_index <= max_index; child_index *= 2)
+    {
+        // R child exist and R child > L child
+        if ((child_index < max_index) && (data[child_index] < data[child_index + 1]))
+        {
+            child_index++; 
+        }
+
+        // This tree include root is already a heap
+        // if (root_elem_value > data[child_index])
+        if (data[temp_root_index] > data[child_index])
+        {
+            break;
+        }
+
+        helper_swap(&data[temp_root_index], &data[child_index]);   
+        // data[temp_root_index] = data[child_index];
+        temp_root_index = child_index;             
+    }
+
+    // data[temp_root_index] = root_elem_value;
+    return 0;
+}
+
 
 int straight_insertion_sort(SequenceWithSentinel *seq_array)
 {
@@ -336,14 +391,14 @@ int quick_sort_partition(ElementType data[], int low, int high)
             high_index--;
         }
         // Swap(data + low_index, data + high_index);
-        data[low_index] = data[high_index];
+        data[low_index] = data[high_index]; // cover the condition: low_index == high_index
 
         while ((low_index < high_index) && (data[low_index] <= pivot_key))
         {
             low_index++;
         }
         // Swap(data + low_index, data + high_index);
-        data[high_index] = data[low_index];
+        data[high_index] = data[low_index]; // cover the condition: low_index == high_index
     }
     data[low_index] = pivot_key;
     return low_index;
